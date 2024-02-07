@@ -10,45 +10,50 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/product")
+//@RequestMapping("/product")
 public class ProductController {
 
     @Autowired
     private ProductService service;
 
-    @GetMapping("/create")
+    @GetMapping("")
+    public String homePage(Model model){
+        return "HomePage";
+    }
+
+    @GetMapping("/product/create")
     public String createProductPage (Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
         return "createProduct";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/product/create")
     public String createProductPost (@ModelAttribute Product product, Model model) {
         service.create(product);
         return "redirect:list";
     }
 
-    @GetMapping("/edit/{productId}")
+    @GetMapping("/product/edit/{productId}")
     public String editProductPage(@PathVariable("productId") String productId, Model model) {
         Product product = service.findById(productId);
         model.addAttribute("product", product);
         return "editProduct";
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/product/edit")
     public String editProductPost(@ModelAttribute Product product) {
         service.update(product);
         return "redirect:/product/list";
     }
 
-    @GetMapping("/delete/{idProductDelete}")
+    @GetMapping("/product/delete/{idProductDelete}")
     public String deleteProductGet (Model model, @PathVariable String idProductDelete) {
         service.delete(idProductDelete);
         return "redirect:../list";
     }
 
-    @GetMapping("/list")
+    @GetMapping("/product/list")
     public String productListPage (Model model) {
         List <Product> allProducts = service.findAll();
         model.addAttribute("products", allProducts);

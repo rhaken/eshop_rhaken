@@ -17,8 +17,8 @@
   Menjadi kode dibawah hanya import yang perlu perlu saja
 
 ### 2. Implementasi kode sekarang untuk memenuhi CI/CD
-Menurut saya, implementasi sekarang sudah dapat dikategorikan memenuhi basic CI/CD . Dengan github workflows, projek  kita  bisa otomatis melakukan testing dan deployment setiap kali push ke repository GitHub. 
-Setiap push akan diuji dengan ci.yml dan diperiksa sekuritas dan kebenaran dari kode (bukan logic) dengan PMD. 
+Menurut saya, implementasi saya memenuhi basic CI/CD . Dengan github workflows, projek  kita  bisa otomatis melakukan testing dan deployment setiap kali push ke repository GitHub. 
+Setiap push akan diuji dengan ci.yml dan diperiksa sekuritas dan kebenaran dari kode menggukan PMD. 
 Setelah itu, kode akan di-merge ke branch main dan otomatis di-deploy ke PaaS Koyeb dengan action scorecard.yml, membentuk workflows pada Software Development Lifecycle dengan CI/CD.
 
 

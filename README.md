@@ -1,3 +1,27 @@
+# TUTORIAL - 2
+## Refleksi
+
+### 1. _List Quality Code Issues_ yang sudah di fix
+
+- Mengubah modifier dari class interface service:
+
+  Disini saya mengubah modifier yang sebelumnya public menjadi default.
+  Ini dilakukan karena class merupakan interface class.
+
+- Mengubah import dari annotation *:
+  
+  Dalam controller saya mengubah yang awalnya:
+  ```java
+  import org.springframework.web.bind.annotation.*
+  ```
+  Menjadi kode dibawah hanya import yang perlu perlu saja
+
+### 2. Implementasi kode sekarang untuk memenuhi CI/CD
+Menurut saya, implementasi sekarang sudah dapat dikategorikan memenuhi basic CI/CD . Dengan github workflows, projek  kita  bisa otomatis melakukan testing dan deployment setiap kali push ke repository GitHub. 
+Setiap push akan diuji dengan ci.yml dan diperiksa sekuritas dan kebenaran dari kode (bukan logic) dengan PMD. 
+Setelah itu, kode akan di-merge ke branch main dan otomatis di-deploy ke PaaS Koyeb dengan action scorecard.yml, membentuk workflows pada Software Development Lifecycle dengan CI/CD.
+
+
 # Tutorial - 1
 ## Refleksi 1
 Saya telah mempelajari standar kode dari modul seperti clean code, git flow, secure coding, dan pengujian.

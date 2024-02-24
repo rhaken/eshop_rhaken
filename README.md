@@ -1,3 +1,46 @@
+# Tutorial - 3
+## Refleksi
+
+### 1. Implementasi Prinsip SOLID
+**Prinsip SRP (Single Responsibility Principle):**  
+Prinsip SRP menegaskan bahwa satu kelas seharusnya memiliki satu tanggung jawab utama.
+
+Dalam implementasi ini, kelas-kelas controller seperti Homepage, Car, dan Product dipisahkan, masing-masing bertanggung jawab atas fungsionalitasnya sendiri tanpa intervensi terhadap kelas lain.
+
+**Prinsip DIP (Dependency Inversion Principle):**  
+Prinsip DIP menyarankan agar kode tingkat tinggi tidak bergantung pada kode tingkat rendah, melainkan pada abstraksi.
+
+Di sini, Car Controller menggunakan antarmuka Service Car tanpa terikat pada implementasi khusus dari antarmuka tersebut.
+
+**Prinsip ISP (Interface Segregation Principle):**  
+Prinsip ISP menyatakan bahwa antarmuka seharusnya dibagi menjadi bagian yang lebih kecil sesuai fungsinya.
+
+Implementasi ini membedakan antarmuka yang digunakan antara Car dan Product, memastikan setiap antarmuka menjalankan fungsinya sendiri.
+
+*Catatan:*  
+Meskipun ada kesempatan untuk menerapkan prinsip OCP dengan membuat abstraksi dari Car dan Product Repository, hal itu tidak dilakukan karena perbedaan sintaksis antara Repository Produk dan Car Repository, yang akan mengganggu tes dan layanan lainnya.
+
+### 2. Keunggulan Implementasi SOLID
+- **Memudahkan Pelacakan Masalah dalam Pengujian Kode:**
+  Dengan memecah kode menjadi unit-unit kecil, memudahkan pelacakan masalah saat pengujian. Hal ini memungkinkan identifikasi sumber kesalahan dengan lebih mudah.
+  
+- **Meningkatkan Keterbacaan Kode:**
+  Memecah method menjadi bagian yang lebih kecil meningkatkan keterbacaan kode. Kode yang lebih pendek cenderung lebih mudah dipahami oleh pembaca baru.
+
+- **Meningkatkan Batasan Dependency Kode:**
+  Penggunaan Dependency Inversion memastikan bahwa perubahan pada kode tidak memengaruhi bagian lain. Ini memungkinkan fleksibilitas dalam perubahan tanpa merusak kode lain.
+
+### 3. Kerugian Tidak Mengimplementasikan SOLID
+- **Sulit Dipahami:**
+  Kode yang tidak mematuhi prinsip SOLID akan sulit dipahami. Metode yang melakukan terlalu banyak tugas akan sulit untuk didebug dan dipahami tujuannya.
+
+- **Sulit diuji:**
+  Kode yang kompleks atau memiliki banyak ketergantungan akan sulit diuji. Proses pengujian unit akan memerlukan usaha ekstra karena perlu mensimulasikan variabel yang dibutuhkan.
+
+- **Sulit Diubah:**
+  Kode yang tidak mematuhi prinsip SOLID akan sulit diubah. Hal ini dapat menyebabkan kerusakan pada modul lain atau memerlukan perombakan saat mengubah tipe data yang diterima oleh sebuah method.
+
+
 # TUTORIAL - 2
 ## Refleksi
 

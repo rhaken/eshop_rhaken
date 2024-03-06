@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import id.ac.ui.cs.advprog.eshop.model.Payment;
 
 @Repository
-public class PaymentRepository {
+public class PaymentRepository {  
     private List<Payment> payments = new ArrayList<>();
 
     public Payment save(Payment payment) {

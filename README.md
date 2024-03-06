@@ -1,3 +1,27 @@
+
+# TUTORIAL - 4
+
+## Refleksi
+
+1. Prosedur TDD (Test-Driven Development) membantu dalam membuat kode yang aman dan dapat dieksekusi dengan cepat. Test yang dilakukan sebelumnya menjamin bahwa kode akan aman jika semua test berhasil lulus. Perubahan kode dapat langsung diuji yang memudahkan proses refactoring. Untuk menjamin kebenaran kode secara lebih mendalam, perlu ditambahkan pengujian interaksi antar fitur. Contoh dari pengujian ini adalah membuat, mengupdate, dan mendelete 100 produk secara bersamaan untuk melihat apakah interaksi antara ketiga fitur tersebut berfungsi dengan benar.
+
+2. Menurut evaluasi saya, test-test yang telah saya buat sudah memenuhi prinsip-prinsip F.I.R.S.T, yang mencakup:
+   - **Fast**: Algoritma testing yang seminimal mungkin untuk menguji kode secara keseluruhan.
+   - **Isolated**: Isolasi antar test untuk memastikan hasil satu test tidak mempengaruhi test lain.
+   - **Repeatable**: Tes yang dapat diulang-ulang, terutama bermanfaat saat ada perubahan kode.
+   - **Self-validating**: Asersi yang memastikan output yang benar.
+   - **Timely**: Test yang dilakukan tepat waktu sepanjang siklus pengembangan.
+
+
+
+### Prosedur Test-Driven Development (TDD)
+
+Prosedur Test-Driven Development (TDD) berkontribusi signifikan dalam pengembangan kode yang aman dan efisien. Melalui praktik ini, pengujian yang dilakukan sebelumnya menjamin keamanan kode asalkan semua tes berhasil dilalui. Proses ini memudahkan dalam melakukan refactoring karena setiap perubahan kode dapat langsung diuji.
+
+#### Pentingnya Pengujian Interaksi Fitur
+
+Untuk memastikan kebenaran kode secara lebih komprehensif, sangat penting untuk menambahkan pengujian interaksi antar fitur. Sebagai contoh, dapat dilakukan pengujian untuk membuat, mengupdate, dan menghapus 100 produk secara bersamaan. Hal ini membantu dalam mengidentifikasi apakah interaksi antara ketiga fitur tersebut berjalan dengan benar.
+
 # Tutorial - 3
 ## Refleksi
 

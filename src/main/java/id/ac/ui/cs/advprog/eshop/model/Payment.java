@@ -1,10 +1,9 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Map;
 
-import lombok.Builder;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import lombok.Getter;
 
 @Getter
@@ -14,8 +13,7 @@ public class Payment {
     Order order;
     Map<String, String> paymentData;
     String status;
-    ArrayList<String> listStatus = new ArrayList<>(Arrays.asList("WAITING_PAYMENT", "SUCCESS", "REJECTED"));
-    ArrayList<String> listMethod = new ArrayList<>(Arrays.asList("CASH_ON_DELIVERY","VOUCHER_CODE"));
+
     public Payment(String id, String method, Order order, Map<String, String> paymentData, String status) {
         this.id = id;
         this.method = method;
@@ -25,11 +23,11 @@ public class Payment {
     }
 
     public Payment(String id, String method, Order order, Map<String, String> paymentData) {
-        this(id, method, order, paymentData, "WAITING_PAYMENT");
+        this(id, method, order, paymentData, PaymentStatus.WAITING_PAYMENT.getValue());
     }
 
     public void setStatus(String status) {
-        if (!listStatus.contains(status)) {
+        if (!PaymentStatus.contains(status)) {
             throw new IllegalArgumentException("Invalid payment status");
         }
 
@@ -45,7 +43,7 @@ public class Payment {
     }
 
     protected void setPaymentData(Map<String, String> paymentData) {
-        if (listMethod.contains(this.method)) {
+        if (PaymentMethod.contains(this.method)) {
             throw new IllegalArgumentException(
                     "Cannot set method-specific payment data for non-method-specific payment"
             );

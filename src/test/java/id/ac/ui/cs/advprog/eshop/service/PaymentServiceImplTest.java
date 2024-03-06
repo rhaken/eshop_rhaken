@@ -1,5 +1,7 @@
 package id.ac.ui.cs.advprog.eshop.service;
 
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import id.ac.ui.cs.advprog.eshop.model.*;
 import id.ac.ui.cs.advprog.eshop.repository.OrderRepository;
 import id.ac.ui.cs.advprog.eshop.repository.PaymentRepository;

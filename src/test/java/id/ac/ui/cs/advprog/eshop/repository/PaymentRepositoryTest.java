@@ -13,13 +13,11 @@ import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import enums.PaymentMethod;
-import enums.PaymentStatus;
-import id.ac.ui.cs.advprog.eshop.model.CashOnDeliveryPayment;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import id.ac.ui.cs.advprog.eshop.model.Order;
 import id.ac.ui.cs.advprog.eshop.model.Payment;
 import id.ac.ui.cs.advprog.eshop.model.Product;
-import id.ac.ui.cs.advprog.eshop.model.VoucherCodePayment;
 
 class PaymentRepositoryTest {
     PaymentRepository paymentRepository;

@@ -3,7 +3,7 @@ package id.ac.ui.cs.advprog.eshop.enums;
 import lombok.Getter;
 
 @Getter
-public enum PaymentMethod {
+public enum PaymentMethod { 
     VOUCHER("VOUCHER_CODE"),
     COD("CASH_ON_DELIVERY");
 

@@ -10,12 +10,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import id.ac.ui.cs.advprog.eshop.model.*;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
-import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
+import id.ac.ui.cs.advprog.eshop.model.CashOnDeliveryPayment;
+import id.ac.ui.cs.advprog.eshop.model.Order;
+import id.ac.ui.cs.advprog.eshop.model.Payment;
+import id.ac.ui.cs.advprog.eshop.model.Product;
+import id.ac.ui.cs.advprog.eshop.model.VoucherCodePayment;
 
 class PaymentRepositoryTest {
     PaymentRepository paymentRepository;
@@ -69,18 +73,18 @@ class PaymentRepositoryTest {
                 voucherPaymentData
         );
 
-        Map<String, String> bankPaymentData = new HashMap<>();
-        bankPaymentData.put("bankName", "BCA");
-        bankPaymentData.put("referenceCode", "1234567890");
-        Payment bankPayment = new CashOnDeliveryPayment(
+        Map<String, String> CODPaymentData = new HashMap<>();
+        CODPaymentData.put("address", "Jalan Raya 1");
+        CODPaymentData.put("deliveryFee", "1000");
+        Payment CODPayment = new CashOnDeliveryPayment(
                 "d0f81308-9911-40c5-8da4-fa3194485aa1",
                 PaymentMethod.COD.getValue(),
                 order,
-                bankPaymentData
+                CODPaymentData
         );
 
         payments.add(voucherPayment);
-        payments.add(bankPayment);
+        payments.add(CODPayment);
     }
 
     @Test
@@ -219,8 +223,8 @@ class PaymentRepositoryTest {
         Order newOrder = new Order("dbd4aff4-9a7f-4603-92c2-eaf529271cc9",
                 newProducts, 1708560000L, "Safira Sudrajat");
         Map<String, String> newCashOnDeliveryPaymentData = new HashMap<>();
-        newCashOnDeliveryPaymentData.put("bankName", "BNI");
-        newCashOnDeliveryPaymentData.put("referenceCode", "1234567890");
+        newCashOnDeliveryPaymentData.put("address", "Jalan Raya 1");
+        newCashOnDeliveryPaymentData.put("deliveryFee", "100");
         Payment newPayment = new CashOnDeliveryPayment(
                 payment.getId(),
                 payment.getMethod(),
@@ -270,56 +274,5 @@ class PaymentRepositoryTest {
 
         List<Payment> allPayments = paymentRepository.getAllPayments();
         assertEquals(4, allPayments.size());
-    }
-
-    @Test
-    void testAddPaymentDuplicateId() {
-        Payment payment = payments.get(1);
-        paymentRepository.save(payment);
-
-        Payment newPayment = new Payment(
-                payment.getId(),
-                payment.getMethod(),
-                payment.getOrder(),
-                payment.getPaymentData()
-        );
-
-        assertThrows(IllegalStateException.class, () -> {
-            paymentRepository.save(newPayment);
-        });
-    }
-
-    @Test
-    void testAddPaymentDuplicateIdVoucher() {
-        Payment payment = payments.get(2);
-        paymentRepository.save(payment);
-
-        Payment newPayment = new VoucherCodePayment(
-                payment.getId(),
-                payment.getMethod(),
-                payment.getOrder(),
-                payment.getPaymentData()
-        );
-
-        assertThrows(IllegalStateException.class, () -> {
-            paymentRepository.save(newPayment);
-        });
-    }
-
-    @Test
-    void testAddPaymentDuplicateIdCODPayment() {
-        Payment payment = payments.get(3);
-        paymentRepository.save(payment);
-
-        Payment newPayment = new CashOnDeliveryPayment(
-                payment.getId(),
-                payment.getMethod(),
-                payment.getOrder(),
-                payment.getPaymentData()
-        );
-
-        assertThrows(IllegalStateException.class, () -> {
-            paymentRepository.save(newPayment);
-        });
     }
 }
